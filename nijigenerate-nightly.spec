@@ -126,6 +126,7 @@ install -p -m 644 %SOURCE3 ${RPM_BUILD_ROOT}%{_datadir}/nijigenerate-nightly/dub
 %{_metainfodir}/nijigenerate-nightly.appdata.xml
 %{_datadir}/applications/nijigenerate-nightly.desktop
 %{_datadir}/icons/hicolor/256x256/apps/nijigenerate-nightly.png
+%{_datadir}/nijigenerate-nightly/dub.selections.json
 
 
 %changelog
