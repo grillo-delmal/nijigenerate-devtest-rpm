@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=nijigenerate (DevTest)
+Exec=nijigenerate-devtest
+Icon=nijigenerate-devtest
+Type=Application
+Categories=Utility

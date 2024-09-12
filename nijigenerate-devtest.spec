@@ -4,7 +4,7 @@
 
 %define nijigenerate_suffix ^%{nijigenerate_dist}.git%{nijigenerate_short}
 
-Name:           nijigenerate-nightly
+Name:           nijigenerate-devtest
 Version:        %{nijigenerate_ver}%{?nijigenerate_suffix:}
 Release:        %autorelease
 Summary:        Tool to create and edit nijilive puppets
@@ -35,11 +35,11 @@ Summary:        Tool to create and edit nijilive puppets
 ##   tinyfiledialogs licenses: Zlib
 License:        BSD-2-Clause and Apache-2.0 and BSL-1.0 and ISC and MIT and Zlib
 
-URL:            https://github.com/grillo-delmal/nijigenerate-nightly
+URL:            https://github.com/grillo-delmal/nijigenerate-devtest
 
-Source0:        https://github.com/grillo-delmal/nijigenerate-nightly/releases/download/nightly/nijigenerate-source.zip
-Source1:        nijigenerate-nightly.desktop
-Source2:        nijigenerate-nightly.appdata.xml
+Source0:        https://github.com/grillo-delmal/nijigenerate-devtest/releases/download/nightly/nijigenerate-source.zip
+Source1:        nijigenerate-devtest.desktop
+Source2:        nijigenerate-devtest.appdata.xml
 Source3:        dub.selections.json
 
 # dlang
@@ -73,12 +73,9 @@ Requires:       SDL2
 
 
 %description
-nijilive is a framework for realtime 2D puppet animation which can be used for VTubing, 
-game development and digital animation. 
+This is a development test version of the software maintained by Grillo del Mal, use at your own risk.
+nijilive is a framework for realtime 2D puppet animation which can be used for VTubing, game development and digital animation.
 nijigenerate is a tool that lets you create and edit nijilive puppets.
-This is a nightly build of nijigenerate!
-nijigenerate may crash unexpectedly and you will likely encounter bugs.
-Make sure to save and back up your work often!
 
 %prep
 %setup -c
@@ -101,32 +98,32 @@ dub build --skip-registry=all --compiler=ldc2 --config=linux-nightly --build=deb
 
 %install
 install -d ${RPM_BUILD_ROOT}%{_bindir}
-install -p ./out/nijigenerate ${RPM_BUILD_ROOT}%{_bindir}/nijigenerate-nightly
+install -p ./out/nijigenerate ${RPM_BUILD_ROOT}%{_bindir}/nijigenerate-devtest
 
 install -d ${RPM_BUILD_ROOT}%{_datadir}/applications/
-install -p -m 644 %SOURCE1 ${RPM_BUILD_ROOT}%{_datadir}/applications/nijigenerate-nightly.desktop
+install -p -m 644 %SOURCE1 ${RPM_BUILD_ROOT}%{_datadir}/applications/nijigenerate-devtest.desktop
 desktop-file-validate \
-    ${RPM_BUILD_ROOT}%{_datadir}/applications/nijigenerate-nightly.desktop
+    ${RPM_BUILD_ROOT}%{_datadir}/applications/nijigenerate-devtest.desktop
 
 install -d ${RPM_BUILD_ROOT}%{_metainfodir}/
-install -p -m 644 %SOURCE2 ${RPM_BUILD_ROOT}%{_metainfodir}/nijigenerate-nightly.appdata.xml
+install -p -m 644 %SOURCE2 ${RPM_BUILD_ROOT}%{_metainfodir}/nijigenerate-devtest.appdata.xml
 appstream-util validate-relax --nonet \
-    ${RPM_BUILD_ROOT}%{_metainfodir}/nijigenerate-nightly.appdata.xml
+    ${RPM_BUILD_ROOT}%{_metainfodir}/nijigenerate-devtest.appdata.xml
 
 install -d $RPM_BUILD_ROOT/%{_datadir}/icons/hicolor/256x256/apps/
-install -p -m 644 ./res/logo_256.png $RPM_BUILD_ROOT/%{_datadir}/icons/hicolor/256x256/apps/nijigenerate-nightly.png
+install -p -m 644 ./res/logo_256.png $RPM_BUILD_ROOT/%{_datadir}/icons/hicolor/256x256/apps/nijigenerate-devtest.png
 
-install -d ${RPM_BUILD_ROOT}%{_datadir}/nijigenerate-nightly/
-install -p -m 644 %SOURCE3 ${RPM_BUILD_ROOT}%{_datadir}/nijigenerate-nightly/dub.selections.json
+install -d ${RPM_BUILD_ROOT}%{_datadir}/nijigenerate-devtest/
+install -p -m 644 %SOURCE3 ${RPM_BUILD_ROOT}%{_datadir}/nijigenerate-devtest/dub.selections.json
 
 
 %files
 %license LICENSE
-%{_bindir}/nijigenerate-nightly
-%{_metainfodir}/nijigenerate-nightly.appdata.xml
-%{_datadir}/applications/nijigenerate-nightly.desktop
-%{_datadir}/icons/hicolor/256x256/apps/nijigenerate-nightly.png
-%{_datadir}/nijigenerate-nightly/dub.selections.json
+%{_bindir}/nijigenerate-devtest
+%{_metainfodir}/nijigenerate-devtest.appdata.xml
+%{_datadir}/applications/nijigenerate-devtest.desktop
+%{_datadir}/icons/hicolor/256x256/apps/nijigenerate-devtest.png
+%{_datadir}/nijigenerate-devtest/dub.selections.json
 
 
 %changelog
