@@ -1,6 +1,6 @@
 %define nijigenerate_ver 0.7.1
-%define nijigenerate_dist 1082
-%define nijigenerate_short d566fda
+%define nijigenerate_dist 1084
+%define nijigenerate_short 8a7f753
 
 %define nijigenerate_suffix ^%{nijigenerate_dist}.git%{nijigenerate_short}
 
